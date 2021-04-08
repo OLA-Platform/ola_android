@@ -1,0 +1,80 @@
+import com.libs.*
+
+android {
+    compileSdkVersion Libs.Config.V.csv
+    buildToolsVersion Libs.Config.V.btv
+    dataBinding.enabled = true
+    defaultConfig {
+        minSdkVersion Libs.Config.V.msv
+        targetSdkVersion Libs.Config.V.tsv
+        versionCode Libs.Config.V.APP.versionCode
+        versionName Libs.Config.V.APP.versionName
+        testInstrumentationRunner Libs.AndroidX.Test.androidJunitRunner
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = Libs.Config.V.jvmTarget
+    }
+}
+
+dependencies {
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.material
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.appcompat
+
+    implementation Libs.AndroidX.Constraint.constraintLayout
+    implementation Libs.AndroidX.Navigation.uiKtx
+    implementation Libs.AndroidX.Navigation.fragmentKtx
+    implementation Libs.AndroidX.activity
+
+    implementation Libs.AndroidX.Lifecycle.liveData
+    implementation Libs.AndroidX.Lifecycle.viewModelKtx
+    implementation Libs.AndroidX.Lifecycle.runtimeKtx
+
+    implementation Libs.RXJava.rxAndroid
+    implementation Libs.RXJava.rxJava
+    implementation Libs.MMKV.mmkv
+
+    implementation Libs.Permission.permission
+
+    implementation Libs.OkHttp.retrofit2
+    implementation Libs.OkHttp.retrofitAdapter
+    implementation Libs.OkHttp.converterGSON
+    implementation Libs.OkHttp.okHttp
+    implementation Libs.OkHttp.logging
+    debugImplementation Libs.OkHttp.chunck
+    releaseImplementation Libs.OkHttp.chunckNoop
+    implementation Libs.Navigation.navigation
+    implementation Libs.Glide.glide
+    implementation Libs.Glide.glideOkHttp3Integration
+
+    implementation Libs.Adjust.adjust
+    implementation Libs.Adjust.adjustInstall
+
+/**
+    implementation Libs.Coroutines.core
+    implementation Libs.Coroutines.android
+    implementation Libs.Coroutines.test
+*/
+    testImplementation Libs.AndroidX.Test.junit
+    androidTestImplementation Libs.AndroidX.Test.espressoCore
+    androidTestImplementation Libs.AndroidX.Test.Ext.junit
+
+
+
+
+
+
+}
